@@ -1,13 +1,13 @@
 import './Header.css';
-import {useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import UserInfo from './UserInfo.jsx';
-import {useSeletor} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
 
 	const location = useLocation();
 	const navigate = useNavigate();
-	const {isLoggedIn} = useSeletor(state => state.auth)
+	const { isLoggedIn } = useSelector(state => state.auth)
 
 	const onlyTitleList = ['/login', '/registration'];
 	const onlyTitleFlg = onlyTitleList.some(path => path === location.pathname);
@@ -27,7 +27,7 @@ export default function Header() {
 
 	return (
 		<>
-			<div className="header-contianer">
+			<div className="header-container">
 				<div className={`${(onlyTitleFlg && 'header-top') || 'bottom-line header-top-grid'}`}>
 					<h1 className={`${(onlyTitleFlg && 'header-top-title-only') || ''}`} onClick={redirectPosts}>Kimjunghyungram</h1>
 				  {
@@ -38,7 +38,7 @@ export default function Header() {
 									||
 									<>
 										<button type="button" onClick={redirectLogin} className='btn-small bg-gray'>Sign in</button>
-										<button type="button" onClick={redirectRegistration} className='btn-small bg-light'>Sign in</button>
+										<button type="button" onClick={redirectRegistration} className='btn-small bg-light'>Sign up</button>
 									</>
 								}
 							</div>
