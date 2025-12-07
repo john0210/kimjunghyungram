@@ -29,7 +29,7 @@ export default function Header() {
 		<>
 			<div className="header-container">
 				<div className='header-top'>
-					<h1 className='header-top-title-only'>Kimjunghyungram</h1>
+					<h1 className='header-top-title-only'>KIMJUNGHYUNGRAM</h1>
 				 
 						<div className='header-top-btn-box'>
 								<button type="button" className='btn-small bg-dark'>로그아웃</button>
