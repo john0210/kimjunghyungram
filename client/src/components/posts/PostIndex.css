@@ -23,6 +23,7 @@
 
 .btn-full-width {
   background-color: brown;
+  color: white;
 }
 
 @media (min-width: 600px) {
