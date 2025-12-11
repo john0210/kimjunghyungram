@@ -1,6 +1,8 @@
 // import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import './PostIndex.css';
+import { useNavigate } from 'react-router-dom';
+
 import img1 from '../../assets/1.jpg';
 import img2 from '../../assets/2.jpg';
 import img3 from '../../assets/3.jpg';
@@ -14,9 +16,9 @@ import img10 from '../../assets/10.jpg';
 import img11 from '../../assets/11.jpg';
 import img12 from '../../assets/12.jpg';
 
-// import { useNavigate } from 'react-router-dom';
 
 export default function PostIndex() {
+  const navigate = useNavigate();
   // 임시 리스트 데이터 (정적)
   const list = [
     { id : 1, image : img1},
@@ -39,6 +41,13 @@ export default function PostIndex() {
     
   }, []);
 
+  function redirectPostShow(id, image) {
+    navigate(`/posts/show/${id}`, {
+      state: { image }
+    }); 
+  }
+
+
   return (
     <>
       <div className="post-index-container">
@@ -50,6 +59,7 @@ export default function PostIndex() {
                 className="post-index-card" 
                  style={{backgroundImage: `url("${item.image}")`}}
                  key={item.id}
+                 onClick={() => { redirectPostShow(item.id, item.image) }}
                 ></div>
               )
             })
